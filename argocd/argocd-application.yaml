@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-argocd 
+  namespace: argocd
+spec:
+  destination:
+    namespace: nginx-app
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: nginx-app
+    repoURL: https://github.com/JustinNguyen9979/nginx-app.git
+    targetRevision: HEAD
+  syncPolicy: 
+  # automated: {}
